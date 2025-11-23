@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão da Ju - Sua Transformação em Campo Mourão</title>
+    <meta name="description" content="Progressiva, Luzes e Corte em Campo Mourão. Agende sua avaliação gratuita com Juliana de Souza.">
+    <!-- Ícone da aba (favicon) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💇‍♀️</text></svg>">
+    
+    <style>
+        /* --- RESET E VARIÁVEIS --- */
+        :root {
+            --primary-pink: #d63384; /* Rosa escuro profissional */
+            --hover-pink: #c21b6c;    /* Rosa mais escuro para hover */
+            --soft-pink: #ffeef5;     /* Rosa claro fundo */
+            --white: #ffffff;
+            --text-dark: #333333;     /* Cinza escuro para texto principal */
+            --text-light: #666666;    /* Cinza claro para descrições */
+            --shadow: 0 5px 20px rgba(214, 51, 132, 0.1);
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: var(--nav-height); /* Espaço para o menu fixo */
+        }
+
+        /* --- LAYOUT GERAL --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-pink);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            font-weight: 700;
+            color: #333; /* Títulos de seção em cinza escuro para contraste */
+        }
+
+        h2 span {
+            color: var(--primary-pink);
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-pink);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* --- MENU DE NAVEGAÇÃO (FIXO) --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-pink);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 50px; /* Altura máxima da logo */
+            margin-right: 10px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        
+        .logo-text span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+
+        /* Links Desktop */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-pink);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-nav {
+            background-color: var(--primary-pink);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: background 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--hover-pink);
+        }
+        
+        .btn-nav::after { display: none !important; } /* Remove sublinhado do botão */
+
+        /* Menu Hambúrguer (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* --- BOTÕES GERAIS --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-pink);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.4);
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.5);
+            background-color: var(--hover-pink);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-pink);
+            color: var(--primary-pink);
+            padding: 12px 30px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, #fff0f6 100%);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Elemento decorativo de fundo */
+        .hero::before {
+            content: '🌸';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 300px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            max-width: 900px;
+            margin: 0 auto 25px;
+            color: #b01c59;
+            font-weight: 800;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            color: #555;
+        }
+
+        .hero-badge {
+            background-color: rgba(214, 51, 132, 0.1);
+            color: var(--primary-pink);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: inline-block;
+            border: 1px solid rgba(214, 51, 132, 0.2);
+        }
+
+        /* --- DIFERENCIAL --- */
+        .diferencial {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffe0ea;
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.1);
+        }
+
+        .feature-icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--soft-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        /* --- SERVIÇOS --- */
+        .services {
+            background-color: #fafafa;
+        }
+
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .service-item {
+            background: var(--white);
+            flex: 1 1 300px;
+            max-width: 350px;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .service-item:hover {
+            border-bottom-color: var(--primary-pink);
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .service-item p {
+            font-size: 0.95rem;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- PROVA SOCIAL (DEPOIMENTOS) --- */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .review-card::before {
+            content: '“';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--soft-pink);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+            color: #555;
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .avatar-placeholder {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-pink);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+
+        .review-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        .review-category {
+            font-size: 0.75rem;
+            color: var(--primary-pink);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: bold;
+        }
+
+        /* --- CONTATO E LOCALIZAÇÃO --- */
+        .contact-section {
+            background-color: var(--soft-pink);
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .form-box, .map-box {
+            flex: 1 1 450px;
+            background: var(--white);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 600px;
+        }
+        
+        .form-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+        }
+        
+        .form-header p {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #fdfdfd;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            background: #fff;
+        }
+
+        .address-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .address-icon {
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            margin-top: 25px;
+            border: 2px dashed #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Simulação visual de mapa */
+        .map-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 10px, #e9e9e9 10px, #e9e9e9 20px);
+            z-index: 1;
+            opacity: 0.5;
+        }
+        
+        .map-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #333; /* Rodapé escuro para contraste profissional */
+            color: #eee;
+            text-align: center;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .copy {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVIDADE & MENU MOBILE --- */
+        @media (max-width: 900px) {
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 25px;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                padding-top: var(--nav-height);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+            
+            /* Animação do ícone hamburguer */
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero h1 { font-size: 2.2rem; }
+            h2 { font-size: 2rem; }
+            
+            .contact-wrapper { flex-direction: column; align-items: center; }
+            .form-box, .map-box { width: 100%; flex: auto; padding: 30px; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .btn { width: 100%; padding: 15px; font-size: 1rem; }
+            .service-item { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo com Placeholder de Imagem -->
+            <a href="#" class="logo">
+                <!-- Substitua o src pelo caminho da sua imagem real -->
+                <img src="https://placehold.co/100x100/d63384/ffffff?text=Ju" alt="Logo Salão da Ju">
+                <div class="logo-text">
+                    Salão da Ju
+                    <span>BEAUTY EXPERT</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop / Mobile Content -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" onclick="toggleMenu()">Início</a></li>
+                <li><a href="#diferencial" onclick="toggleMenu()">Diferencial</a></li>
+                <li><a href="#servicos" onclick="toggleMenu()">Serviços</a></li>
+                <li><a href="#depoimentos" onclick="toggleMenu()">Depoimentos</a></li>
+                <li><a href="#contato" class="btn-nav" onclick="toggleMenu()">Agendar Agora</a></li>
+            </ul>
+
+            <!-- Ícone Hambúrguer Mobile -->
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="inicio">
+        <div class="container">
+            <span class="hero-badge">✨ Sua Transformação de Beleza</span>
+            <h1>Progressiva, Luzes e Corte em Campo Mourão: Expertise de 8 Anos para o Seu Visual dos Sonhos.</h1>
+            <p class="subtitle">Com <strong>Juliana de Souza</strong>, você tem a garantia de um trabalho de alta qualidade, do cabelo às unhas. Sua autoestima e transformação começam aqui!</p>
+            
+            <a href="https://wa.me/5544998386527?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita!" target="_blank" class="btn">
+                📲 Quero Agendar Minha Avaliação Gratuita
+            </a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">Clique acima para falar direto no WhatsApp</p>
+        </div>
+    </header>
+
+    <!-- DIFERENCIAL -->
+    <section id="diferencial" class="diferencial">
+        <div class="container">
+            <h2>O Diferencial: <span>8 Anos de Expertise</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-circle">👁️</div>
+                    <h3>Visão de Especialista</h3>
+                    <p>Juliana não apenas executa, ela avalia a saúde do seu cabelo e pele para indicar o melhor procedimento para o seu estilo de vida.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-circle">💇‍♀️</div>
+                    <h3>Domínio Completo</h3>
+                    <p>Técnicas avançadas em Progressiva, Luzes, Cortes Modernos, Design de Sobrancelhas e Manicure/Pedicure impecáveis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-circle">☕</div>
+                    <h3>Localização Acolhedora</h3>
+                    <p>Ambiente preparado em Campo Mourão para oferecer um momento único de cuidado, conforto e relaxamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section id="depoimentos" class="testimonials">
+        <div class="container">
+            <h2>O que Nossas Clientes Dizem 💖</h2>
+            <div class="testimonials-grid">
+                <!-- Depoimentos -->
+                <div class="review-card">
+                    <p class="review-text">"Meu cabelo está liso, natural e, o melhor, muito mais saudável! Não troco o Salão da Ju por nada."</p>
+                    <div class="review-footer">
+                        <div class="avatar-placeholder">CM</div>
+                        <div>
+                            <span class="review-author">Carla M., Campo Mourão</span>
+                            <span class="review-category">Progressiva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"A Ju acertou o tom na primeira! Um loiro lindo, sem marcações. Ela é uma artista da cor."</p>
+                    <div class="review-footer">
+                        <div class="avatar-placeholder">AF</div>
+                        <div>
+                            <span class="review-author">Amanda F., Peabiru</span>
+                            <span class="review-category">Luzes e Cor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Deixo meu cabelo nas mãos da Juliana há mais de 5 anos. Atendimento nota 10. Você se sente em casa!"</p>
+                    <div class="review-footer">
+                        <div class="avatar-placeholder">FL</div>
+                        <div>
+                            <span class="review-author">Fernanda L., Cliente Fiel</span>
+                            <span class="review-category">Experiência</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"A Ju sugeriu um corte que valorizou meu rosto. Ela é detalhista e a escova dura a semana toda."</p>
+                    <div class="review-footer">
+                        <div class="avatar-placeholder">PS</div>
+                        <div>
+                            <span class="review-author">Patrícia S., Tropical I</span>
+                            <span class="review-category">Cortes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <p class="review-text">"Minhas unhas sempre quebravam, mas a Ju cuida com tanto carinho! A esmaltação dura muito."</p>
+                    <div class="review-footer">
+                        <div class="avatar-placeholder">LA</div>
+                        <div>
+                            <span class="review-author">Laura A., Amante de Unhas</span>
+                            <span class="review-category">Unhas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <p class="review-text">"Adorei que a primeira avaliação é grátis e ela explicou cada passo. Serviço honesto."</p>
+                    <div class="review-footer">
+                        <div class="avatar-placeholder">DS</div>
+                        <div>
+                            <span class="review-author">Daniela S., Nova Cliente</span>
+                            <span class="review-category">Transparência</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/5544998386527" class="btn btn-outline">Ver mais resultados no Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2>Nossos Serviços de <span>Especialidade</span></h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">✨</div>
+                    <h3>Progressiva de Longa Duração</h3>
+                    <p>Liso com movimento e brilho espelhado. Fórmulas premium que tratam enquanto alisam.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">👱‍♀️</div>
+                    <h3>Luzes e Coloração Premium</h3>
+                    <p>Mechas naturais e sofisticadas que harmonizam com seu tom de pele para um visual luminoso.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">✂️</div>
+                    <h3>Cortes Modernos</h3>
+                    <p>Visagismo completo e finalização impecável para cortes práticos e bonitos no dia a dia.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💅</div>
+                    <h3>Manicure e Pedicure</h3>
+                    <p>Higiene total, cuidados com a saúde das unhas e esmaltação duradoura.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📐</div>
+                    <h3>Design de Sobrancelha</h3>
+                    <p>Design estratégico que valoriza o formato do seu rosto e levanta o olhar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO E CONTATO -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <h2>Agende Sua Visita</h2>
+            <div class="contact-wrapper">
+                
+                <!-- Formulário -->
+                <div class="form-box">
+                    <div class="form-header">
+                        <h3>Fale com a Ju 📞</h3>
+                        <p>Preencha os dados abaixo para iniciar seu atendimento personalizado via WhatsApp.</p>
+                    </div>
+                    <form id="whatsappForm" onsubmit="sendToWhatsapp(event)">
+                        <div class="form-group">
+                            <label for="name">Seu Nome:</label>
+                            <input type="text" id="name" required placeholder="Ex: Maria da Silva">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Seu Telefone:</label>
+                            <input type="tel" id="phone" placeholder="(44) 99999-9999">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse:</label>
+                            <select id="service">
+                                <option value="Avaliação Gratuita">Quero uma Avaliação Gratuita</option>
+                                <option value="Progressiva">Progressiva</option>
+                                <option value="Luzes/Mechas">Luzes/Mechas</option>
+                                <option value="Corte">Corte de Cabelo</option>
+                                <option value="Manicure/Pedicure">Manicure/Pedicure</option>
+                                <option value="Design de Sobrancelha">Design de Sobrancelha</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Falar no WhatsApp Agora</button>
+                    </form>
+                </div>
+
+                <!-- Endereço -->
+                <div class="map-box">
+                    <h3>📍 Onde Estamos</h3>
+                    <div class="address-details">
+                        <div class="address-item">
+                            <span class="address-icon">🏢</span>
+                            <div>
+                                <strong>Salão da Ju</strong><br>
+                                Expert em Beleza e Autoestima
+                            </div>
+                        </div>
+                        <div class="address-item">
+                            <span class="address-icon">📍</span>
+                            <div>
+                                Rua Faisão, n° 217, Tropical I<br>
+                                Campo Mourão - PR<br>
+                                CEP: 87310-150
+                            </div>
+                        </div>
+                        <div class="address-item">
+                            <span class="address-icon">📱</span>
+                            <div>
+                                <strong>(44) 99838-6527</strong><br>
+                                Atendimento com hora marcada
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Placeholder visual do mapa -->
+                    <div class="map-placeholder">
+                        <div class="map-content">
+                            <strong>Salão da Ju</strong><br>
+                            Rua Faisão, 217<br>
+                            <small>Clique abaixo para abrir no GPS</small>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Rua+Faisão+217+Campo+Mourão" target="_blank" class="btn btn-outline" style="width:100%; margin-top:15px; text-align:center;">Abrir rota no Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Salão da Ju</div>
+                <p>Transformando visuais e elevando a autoestima em Campo Mourão.</p>
+            </div>
+            <div class="copy">
+                <p>&copy; 2024 Salão da Ju. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para envio do WhatsApp
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const phone = document.getElementById('phone').value;
+            
+            let message = `Olá Ju! Meu nome é *${name}*.`;
+            if(phone) message += ` (Tel: ${phone})`;
+            message += `\n\nGostaria de saber mais sobre *${service}* e agendar um horário/avaliação.`;
+            
+            const whatsappUrl = `https://wa.me/5544998386527?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Função do Menu Hambúrguer
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Fechar menu ao clicar fora (opcional, para melhor UX)
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.navbar');
+            const isClickInside = nav.contains(event.target);
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!isClickInside && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    </script>
+</body>
+</html>
