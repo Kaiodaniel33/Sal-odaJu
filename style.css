@@ -1,6 +1,6 @@
-/* --- CUSTOM STYLES E EFEITOS PREMIUM --- */
+/* --- CUSTOM STYLES E EFEITOS ULTRA PREMIUM --- */
 
-/* Esconde barras de rolagem nativas para um visual mais limpo em navegadores webkit */
+/* Barras de rolagem discretas */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -15,24 +15,24 @@
     background: #d63384; 
 }
 
-/* Efeito Glow para textos importantes */
+/* Brilho neon luxuoso */
 .text-glow { 
     text-shadow: 0 0 20px rgba(214, 51, 132, 0.4); 
 }
 
-/* Painel de Vidro (Glassmorphism) muito usado em sites de alto padrão */
+/* Glassmorphism Refinado */
 .glass-panel { 
-    background: rgba(28, 25, 23, 0.6); 
-    backdrop-filter: blur(16px); 
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.05); 
+    background: rgba(28, 25, 23, 0.65); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.03); 
 }
 
-/* Efeito de aparição suave enquanto o usuário rola a página */
+/* Animações de Scroll (Aparecimento Suave) */
 .reveal { 
     opacity: 0; 
-    transform: translateY(40px); 
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); 
+    transform: translateY(30px); 
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
 }
 
 .reveal.active { 
@@ -40,10 +40,11 @@
     transform: translateY(0); 
 }
 
-/* Previne o embaçamento de imagens no Desktop e Celular */
-img {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    image-rendering: -webkit-optimize-contrast;
+/* Ajustes de foco para formulário */
+input:focus, select:focus {
+    box-shadow: 0 0 0 2px rgba(214, 51, 132, 0.2);
+}
+
+select {
+    cursor: pointer;
 }
