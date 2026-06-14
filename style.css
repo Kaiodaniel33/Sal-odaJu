@@ -1,0 +1,49 @@
+/* --- CUSTOM STYLES E EFEITOS PREMIUM --- */
+
+/* Esconde barras de rolagem nativas para um visual mais limpo em navegadores webkit */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0c0a09; 
+}
+::-webkit-scrollbar-thumb {
+    background: #292524; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d63384; 
+}
+
+/* Efeito Glow para textos importantes */
+.text-glow { 
+    text-shadow: 0 0 20px rgba(214, 51, 132, 0.4); 
+}
+
+/* Painel de Vidro (Glassmorphism) muito usado em sites de alto padrão */
+.glass-panel { 
+    background: rgba(28, 25, 23, 0.6); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+/* Efeito de aparição suave enquanto o usuário rola a página */
+.reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); 
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* Previne o embaçamento de imagens no Desktop e Celular */
+img {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
+}
